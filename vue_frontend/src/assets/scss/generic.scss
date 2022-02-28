@@ -1,11 +1,10 @@
 * {
     font-family: 'Lato', serif;
-    color: $global-text-color;
+    color: $global-text-color-light;
     line-height: 1.25em;
+    font-size: 16px;
 }
-html, body { margin: 0;}
-h1 { font-size: 24px; margin: 0; }
-p { font-size: 16px; margin: 0; }
+html, body, h1, h2, h3, p { margin: 0;}
 button {
     display: flex;
     align-items: center;
@@ -15,12 +14,12 @@ button {
     
     & img {
         filter:
-            invert(19%)
-            sepia(9%)
-            saturate(3676%)
-            hue-rotate(214deg)
-            brightness(97%)
-            contrast(82%);
+            invert(43%)
+            sepia(0%)
+            saturate(0%)
+            hue-rotate(150deg)
+            brightness(99%)
+            contrast(88%);
     }
 
     & img:hover {
@@ -38,14 +37,26 @@ button {
 .container {
     max-width: 1024px;
 }
+
+/* TEXT-SIZES */
+/* --------------------------------------- */
+.font-xm { font-size: 0.694rem; }
+.font-sm { font-size: 0.833rem; }
+.font-base { font-size: 1rem; }
+.font-md { font-size: 1.2rem; }
+.font-lg { font-size: 1.44rem; }
+.font-xl { font-size: 1.728rem; }
+
+/* FILTERS */
+/* --------------------------------------- */
 .filter-primary-light {
     filter:
-        invert(19%)
-        sepia(9%)
-        saturate(3676%)
-        hue-rotate(214deg)
-        brightness(97%)
-        contrast(82%);
+        invert(43%)
+        sepia(0%)
+        saturate(0%)
+        hue-rotate(150deg)
+        brightness(99%)
+        contrast(88%);
 }
 
 .filter-secondary-light {
@@ -85,7 +96,7 @@ button {
 
 .bg-secondary { background-color: $global-secondary-color; }
 .bg-secondary-dark { background-color: $global-secondary-color-dark; }
-.bg-secondary-light { background-color: $global-primary-color-light; }
+.bg-secondary-light { background-color: $global-secondary-color-light; }
 
 /* BORDERS */
 /* --------------------------------------- */
