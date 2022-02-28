@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full bg-primary rounded-1 px-4 py-6 flex flex-col gap-2 h-max">
-        <h2 class="font-lg">PRESUPUESTO</h2>
+    <div class="w-full bg-primary rounded-2 px-4 py-6 flex flex-col gap-2 h-max">
+        <h2 class="font-md">PRESUPUESTO</h2>
         <div class="w-full border border-secondary mb-4"></div>
         <div class="rounded-1 flex gap-2 border border-primary px-1 py-1">
             <input class="w-full bg-primary border-none" type="text" v-model="budgetTitle" placeholder="Inserte un título...">

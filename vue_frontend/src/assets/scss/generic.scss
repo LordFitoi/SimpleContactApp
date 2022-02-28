@@ -4,7 +4,8 @@
     line-height: 1.25em;
     font-size: 16px;
 }
-html, body, h1, h2, h3, p { margin: 0;}
+html, body, h1, h2, h3, p { margin: 0; }
+a { text-decoration: none; }
 button {
     display: flex;
     align-items: center;
@@ -88,12 +89,15 @@ button {
 
 /* COLORS */
 /* --------------------------------------- */
+.text-light { color: $global-text-color-light; }
+.text-dark { color: $global-text-color-dark; }
+
+
 .bg-white { background-color: #ffffff; }
 
 .bg-primary { background-color: $global-primary-color; }
 .bg-primary-dark { background-color: $global-primary-color-dark; }
 .bg-primary-light { background-color: $global-primary-color-light; }
-
 .bg-secondary { background-color: $global-secondary-color; }
 .bg-secondary-dark { background-color: $global-secondary-color-dark; }
 .bg-secondary-light { background-color: $global-secondary-color-light; }
@@ -115,9 +119,9 @@ button {
 .w-full { width: 100%; }
 .h-max { height: max-content; }
 .w-max { width: max-content; }
+.w-screen { width: 100vw; }
 .h-screen { height: 100vh; }
 .h-full { height: 100%; }
-
 
 
 /* SCALED */

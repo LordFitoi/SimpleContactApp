@@ -1,0 +1,12 @@
+nav {
+    & a {
+        &:hover {
+            & p { color: $global-text-color-dark; }
+            background-color: $global-secondary-color-light;
+        }
+        &.active {
+            & p { color: $global-text-color-dark; }
+            background-color: $global-secondary-color;
+        }
+    }
+}
