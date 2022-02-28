@@ -93,7 +93,7 @@ button {
 .border-none { border: none; }
 .border-primary { border-color: $global-primary-color-light; }
 .border-secondary { border-color: $global-secondary-color-light; }
-.rounded { border-radius: $global-border-radius; }
+.rounded-full { border-radius: 50%; }
 
 /* MARGIN */
 /* --------------------------------------- */
@@ -111,9 +111,15 @@ button {
 
 /* SCALED */
 /* --------------------------------------- */
-@for $i from 0 through 8 {
+@for $i from 0 through 16 {
     .gap-#{$i} {
         gap: $global-spacing * $i;
+    }
+    .w-#{$i} {
+        width: $global-spacing * $i;
+    }
+    .h-#{$i} {
+        height: $global-spacing * $i;
     }
     .px-#{$i} {
         padding-left: $global-spacing * $i;
@@ -131,5 +137,8 @@ button {
     }
     .w-1d#{$i} {
         width: calc(100% * 1 / $i);
+    }
+    .rounded-#{$i} {
+        border-radius: $global-spacing * $i;
     }
 }

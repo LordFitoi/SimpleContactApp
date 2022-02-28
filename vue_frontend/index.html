@@ -8,22 +8,27 @@
         <link rel="stylesheet" href="/src/assets/scss/style.scss">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     </head>
-    <body class="h-screen">
+    <body class="h-screen bg-primary-light">
         <header class="bg-primary">
-            <div class="container mx-auto py-4">
-                <div class="px-4 flex gap-4 items-center">
+            <div class="container mx-auto py-4 flex justify-between">
+                <div class="flex gap-2 items-center bg-primary-light px-4 py-2 rounded-8">
                     <img class="filter-secondary-light" width="32" height="32" src="/src/assets/icons/cube.svg">
                     <div class="w-max">
                         <h1>Vista Principal</h1>
                         <div class="border border-secondary"></div>   
                     </div>
                 </div>
+                <div class="flex items-center gap-4">
+                    <div class="">
+                        <p><b>Nahum Santana</b></p>
+                        <p>nahumsantanam@gmail.com</p>
+                    </div>
+                    <div class="bg-primary-light w-12 h-12 rounded-full"></div>
+                </div>
             </div>
         </header>
-        <main class="h-full container mx-auto">
-            <div class="h-full bg-primary-light py-8 px-4">
-                <div id="app"></div>
-            </div>
+        <main class="h-full container mx-auto py-8">
+            <div id="app"></div>
         </main>
         <script type="module" src="/src/main.js"></script>
     </body>
