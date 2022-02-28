@@ -15,6 +15,7 @@ npm install
 npm run dev
 ```
 
+Y luego accerder a la ruta [http://localhost:3000/](http://localhost:3000/)
 
 ## Preview
 
