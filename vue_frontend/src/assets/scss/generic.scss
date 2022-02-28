@@ -1,0 +1,135 @@
+* {
+    font-family: 'Lato', serif;
+    color: $global-text-color;
+    line-height: 1.25em;
+}
+html, body { margin: 0;}
+h1 { font-size: 24px; margin: 0; }
+p { font-size: 16px; margin: 0; }
+button {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    
+    & img {
+        filter:
+            invert(19%)
+            sepia(9%)
+            saturate(3676%)
+            hue-rotate(214deg)
+            brightness(97%)
+            contrast(82%);
+    }
+
+    & img:hover {
+        filter:
+            invert(60%)
+            sepia(33%)
+            saturate(5944%)
+            hue-rotate(311deg)
+            brightness(100%)
+            contrast(102%);
+    }
+}
+/* CONTAINER */
+/* --------------------------------------- */
+.container {
+    max-width: 1024px;
+}
+.filter-primary-light {
+    filter:
+        invert(19%)
+        sepia(9%)
+        saturate(3676%)
+        hue-rotate(214deg)
+        brightness(97%)
+        contrast(82%);
+}
+
+.filter-secondary-light {
+    filter:
+        invert(60%)
+        sepia(33%)
+        saturate(5944%)
+        hue-rotate(311deg)
+        brightness(100%)
+        contrast(102%);
+}
+
+/* DISPLAY */
+/* --------------------------------------- */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+
+/* ALIGN */
+/* --------------------------------------- */
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+
+
+/* CHILD NODES */
+.show-on {
+    & .it-child { opacity: 0; }
+    &:hover .it-child { opacity: 1; }
+}
+
+/* COLORS */
+/* --------------------------------------- */
+.bg-white { background-color: #ffffff; }
+
+.bg-primary { background-color: $global-primary-color; }
+.bg-primary-dark { background-color: $global-primary-color-dark; }
+.bg-primary-light { background-color: $global-primary-color-light; }
+
+.bg-secondary { background-color: $global-secondary-color; }
+.bg-secondary-dark { background-color: $global-secondary-color-dark; }
+.bg-secondary-light { background-color: $global-primary-color-light; }
+
+/* BORDERS */
+/* --------------------------------------- */
+.border { border: 1px solid; }
+.border-none { border: none; }
+.border-primary { border-color: $global-primary-color-light; }
+.border-secondary { border-color: $global-secondary-color-light; }
+.rounded { border-radius: $global-border-radius; }
+
+/* MARGIN */
+/* --------------------------------------- */
+.mx-auto { margin: 0 auto; }
+
+/* SIZES */
+/* --------------------------------------- */
+.w-full { width: 100%; }
+.h-max { height: max-content; }
+.w-max { width: max-content; }
+.h-screen { height: 100vh; }
+.h-full { height: 100%; }
+
+
+
+/* SCALED */
+/* --------------------------------------- */
+@for $i from 0 through 8 {
+    .gap-#{$i} {
+        gap: $global-spacing * $i;
+    }
+    .px-#{$i} {
+        padding-left: $global-spacing * $i;
+        padding-right: $global-spacing * $i;
+    }
+    .py-#{$i} {
+        padding-top: $global-spacing * $i;
+        padding-bottom: $global-spacing * $i;
+    }
+    .mt-#{$i} {
+        margin-top: $global-spacing * $i;
+    }
+    .mb-#{$i} {
+        margin-bottom: $global-spacing * $i;
+    }
+    .w-1d#{$i} {
+        width: calc(100% * 1 / $i);
+    }
+}
