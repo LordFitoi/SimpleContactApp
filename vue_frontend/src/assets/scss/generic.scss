@@ -39,6 +39,10 @@ button {
     max-width: 1024px;
 }
 
+/* POINTER */
+/* --------------------------------------- */
+.cursor-pointer { cursor: pointer; }
+
 /* TEXT-SIZES */
 /* --------------------------------------- */
 .font-xm { font-size: 0.694rem; }
@@ -77,9 +81,11 @@ button {
 
 /* ALIGN */
 /* --------------------------------------- */
+.justify-end { justify-content: end; }
 .justify-between { justify-content: space-between; }
-.items-center { align-items: center; }
 
+.items-center { align-items: center; }
+.text-start { text-align: start; }
 
 /* CHILD NODES */
 .show-on {
@@ -91,7 +97,6 @@ button {
 /* --------------------------------------- */
 .text-light { color: $global-text-color-light; }
 .text-dark { color: $global-text-color-dark; }
-
 
 .bg-white { background-color: #ffffff; }
 
@@ -122,6 +127,14 @@ button {
 .w-screen { width: 100vw; }
 .h-screen { height: 100vh; }
 .h-full { height: 100%; }
+
+/* SHADOWS */
+/* --------------------------------------- */
+.shadow-sm { box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25); }
+/* POSITION */
+/* --------------------------------------- */
+.relative { position: relative; }
+.absolute { position: absolute; }
 
 
 /* SCALED */

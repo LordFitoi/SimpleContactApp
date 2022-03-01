@@ -10,3 +10,10 @@ nav {
         }
     }
 }
+
+/* DROPDOWN */
+/* --------------------------------------- */
+button.dropdown {
+    & ~ .dropdown-container { display: none; }
+    &:focus ~ .dropdown-container { display: flex; }
+}
