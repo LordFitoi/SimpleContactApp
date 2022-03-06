@@ -1,0 +1,9 @@
+# Django
+# ----------------------------------------------
+Django==4.0.3 # https://github.com/django/django
+django-allauth==0.49.0 # https://github.com/pennersr/django-allauth
+django-sass==1.1.0 # https://github.com/coderedcorp/django-sass
+
+# Utils
+# ----------------------------------------------
+Pillow==9.0.1 # https://github.com/python-pillow/Pillow
