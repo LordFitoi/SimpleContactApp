@@ -21,4 +21,4 @@ Y luego accerder a la ruta [http://localhost:3000/](http://localhost:3000/)
 
 ## Preview
 
-![Screenshot from 2022-02-28 01-27-37](https://user-images.githubusercontent.com/37852973/155929018-c09ae1d5-e273-46f2-9ef4-b053d09406ae.png)
+![Screenshot from 2022-02-28 20-22-17](https://user-images.githubusercontent.com/37852973/156081248-d4d0e1a1-df24-4d0b-a30e-9ca0beb6b06e.png)
