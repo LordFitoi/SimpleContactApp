@@ -11,7 +11,16 @@ migrations:
 start:
 	. venv/bin/activate && python manage.py runserver
 
-build_and_start: build migrations start
+vue_build:
+	npm run --prefix vue_frontend/ dev
+
+build_and_start:
+	build
+	migrations
+	start
 
 vue_dev:
-	npm run --prefix vue_frontend/ dev 
+	npm run --prefix vue_frontend/ dev
+
+sass_compile:
+	. venv/bin/activate && python manage.py sass zero_note/static/scss/style.scss zero_note/static/css/style.min.css --watch -t compressed

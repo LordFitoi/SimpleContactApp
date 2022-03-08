@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% load django_vite %}
+
+{% block javascript %}
+    {% vite_asset 'overview.js' %}
+{% endblock javascript %}

@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_sass'
+    'django_sass',
+    'django_vite',
     
     # LOCAL APPS
     # -------------------------------------------------------
@@ -77,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static'
             ],
         },
     },
@@ -129,7 +131,8 @@ USE_TZ = True
 
 MEDIA_URL = 'media/'
 STATIC_URL = 'static/'
-MEDIA_ROOT = APP_DIR / 'static/media'
+MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [APP_DIR / "static"]
 
 # Default primary key field type
@@ -150,5 +153,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_ADAPTER = 'zero_note.users.adapter.AccountAdapter'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = True
+ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_REQUIRED = True
+
+# Vue Vite Loader
+# -------------------------------------------------------
+DJANGO_VITE_ASSETS_PATH = APP_DIR / "static/vue"
+DJANGO_VITE_MANIFEST_PATH = DJANGO_VITE_ASSETS_PATH / "manifest.json"
+DJANGO_VITE_DEV_MODE = DEBUG

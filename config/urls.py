@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.urls import path, include
-from zero_note.core.views import HomeView
+from zero_note.core.views import BudgetView, HomeView
 from zero_note.users.views import ProfileView
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('profile/<str:username>/', ProfileView.as_view()),
+    path('budget/', BudgetView.as_view())
 ]

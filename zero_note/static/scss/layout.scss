@@ -11,9 +11,25 @@ nav {
     }
 }
 
+form {
+    & input[type="text"],
+    & input[type="email"],
+    & input[type="password"] {
+        background-color: transparent;
+        padding: 2*$global-spacing;
+        border: 1px solid $global-primary-color-light;
+        border-radius: $global-spacing;
+    }
+    
+    
+}
+
 /* DROPDOWN */
 /* --------------------------------------- */
 button.dropdown {
     & ~ .dropdown-container { display: none; }
-    &:focus ~ .dropdown-container { display: flex; }
+    &:focus ~ .dropdown-container,
+    & ~ .dropdown-container:hover {
+        display: flex;
+    }
 }

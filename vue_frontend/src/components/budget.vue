@@ -9,7 +9,7 @@
                 <p>$</p><input class="w-full bg-primary border-none" type="number" v-model="budgetAmount">
             </div>
             <button @click="addBudget()">
-                <img width="20" height="20" src="/src/assets/icons/add-circle.svg">
+                <img width="20" height="20" :src="staticPath + 'images/icons/add-circle.svg'">
             </button>
         </div>
         <div class="rounded-1 flex gap-2 border border-primary px-1 py-1 show-on" v-for="(budget, index) in budgets" :key="budget">
@@ -19,7 +19,7 @@
                 <p>$</p><input class="w-full bg-primary border-none" type="number" v-model="budget.amount">
             </div>
             <button class="it-child" @click="removeBudget(index)">
-                <img width="20" height="20" src="/src/assets/icons/remove-circle.svg" >
+                <img width="20" height="20" :src="staticPath + 'images/icons/remove-circle.svg'" >
             </button>
         </div>
     </div>
@@ -37,6 +37,7 @@ export default {
                     amount: 10
                 }
             ],
+            staticPath: window.staticPath
         }
     },
     methods: {
