@@ -6,7 +6,7 @@
 }
 html, body, h1, h2, h3, p { margin: 0; }
 a { text-decoration: none; }
-button {
+button, a {
     display: flex;
     align-items: center;
     background: transparent;
@@ -22,7 +22,6 @@ button {
             brightness(99%)
             contrast(88%);
     }
-
     & img:hover {
         filter:
             invert(60%)
@@ -32,6 +31,10 @@ button {
             brightness(100%)
             contrast(102%);
     }
+
+    &:hover { background-color: $global-primary-color-light; }
+    &:active { background-color: $global-primary-color-dark; }
+    
 }
 /* CONTAINER */
 /* --------------------------------------- */
@@ -63,7 +66,6 @@ button {
         brightness(99%)
         contrast(88%);
 }
-
 .filter-secondary-light {
     filter:
         invert(60%)
@@ -100,7 +102,6 @@ button {
 .text-dark { color: $global-text-color-dark; }
 .text-blue { color: $global-color-blue; }
 .text-red { color: $global-color-red; }
-
 
 .bg-white { background-color: #ffffff; }
 
@@ -156,7 +157,6 @@ button {
 /* TRANSFORM */
 /* --------------------------------------- */
 .translate-center { transform: translate(-50%, -50%); }
-
 
 /* SCALED */
 /* --------------------------------------- */

@@ -1,3 +1,7 @@
+button {
+    cursor: pointer;
+}
+
 nav {
     & a {
         &:hover {
@@ -14,7 +18,8 @@ nav {
 form {
     & input[type="text"],
     & input[type="email"],
-    & input[type="password"] {
+    & input[type="password"],
+    & input:-internal-autofill-selected {
         background-color: transparent;
         padding: 2*$global-spacing;
         border: 1px solid $global-primary-color-light;
