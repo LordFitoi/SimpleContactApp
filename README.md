@@ -26,3 +26,4 @@ Y luego accerder a la ruta [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 ## Preview
 
 ![Screenshot from 2022-02-28 20-22-17](https://user-images.githubusercontent.com/37852973/156081248-d4d0e1a1-df24-4d0b-a30e-9ca0beb6b06e.png)
+![Screenshot from 2022-03-14 23-15-00](https://user-images.githubusercontent.com/37852973/158299231-025ae6c6-990b-4c87-86da-98750f208433.png)
