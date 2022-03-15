@@ -7,8 +7,16 @@
 <script>
 import Budget from "./components/budget.vue"
 import BudgetSummary from "./components/summary.vue"
+import BudgetStore from './store.js'
 
 export default {
+    setup() {
+        return { store: BudgetStore() }
+    },
+    mounted() {
+        console.log(this.store.hello)
+    },
+
     components: {
         Budget,
         BudgetSummary

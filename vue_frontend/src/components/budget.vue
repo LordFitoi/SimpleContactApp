@@ -31,12 +31,7 @@ export default {
         return {
             budgetTitle: "",
             budgetAmount: 0,
-            budgets: [
-                {
-                    title: "Desayuno",
-                    amount: 10
-                }
-            ],
+            budgets: [],
             staticPath: window.staticPath
         }
     },

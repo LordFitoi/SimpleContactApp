@@ -12,12 +12,9 @@ start:
 	. venv/bin/activate && python manage.py runserver
 
 vue_build:
-	npm run --prefix vue_frontend/ dev
+	npm run --prefix vue_frontend/ build
 
-build_and_start:
-	build
-	migrations
-	start
+build_and_start: build vue_build migrations start
 
 vue_dev:
 	npm run --prefix vue_frontend/ dev

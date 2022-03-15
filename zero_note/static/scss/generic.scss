@@ -184,10 +184,14 @@ button, a {
     .mb-#{$i} {
         margin-bottom: $global-spacing * $i;
     }
-    .w-1d#{$i} {
-        width: calc(100% * 1 / $i);
-    }
     .rounded-#{$i} {
         border-radius: $global-spacing * $i;
     }
+
+    /* NO ZERO VALUES */
+    @if $i > 0 {
+        .w-1d#{$i} {
+            width: 100% * (1 / $i);
+        }
+    } 
 }

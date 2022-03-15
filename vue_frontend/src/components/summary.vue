@@ -21,7 +21,14 @@
 </template>
 
 <script>
-export default {
+import BudgetStore from '../store.js'
 
+export default {
+    setup() {
+        return { store: BudgetStore() }
+    },
+    mounted() {
+        console.log(this.store.hello)
+    }
 }
 </script>

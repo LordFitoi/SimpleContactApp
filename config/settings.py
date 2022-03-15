@@ -133,7 +133,10 @@ MEDIA_URL = 'media/'
 STATIC_URL = 'static/'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [APP_DIR / "static"]
+STATICFILES_DIRS = [
+    APP_DIR / "static",
+    APP_DIR / "static/vue"
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -160,4 +163,4 @@ ACCOUNT_EMAIL_REQUIRED = True
 # -------------------------------------------------------
 DJANGO_VITE_ASSETS_PATH = APP_DIR / "static/vue"
 DJANGO_VITE_MANIFEST_PATH = DJANGO_VITE_ASSETS_PATH / "manifest.json"
-DJANGO_VITE_DEV_MODE = DEBUG
+DJANGO_VITE_DEV_MODE = False
