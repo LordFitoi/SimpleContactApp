@@ -1,5 +1,5 @@
 <template>
-    <div class="w-1d2 h-max bg-primary rounded-2 px-4 py-6 flex flex-col gap-2">
+    <div class="h-max bg-primary rounded-2 px-4 py-6 flex flex-col gap-2">
         <h2 class="font-md">RESUMEN</h2>
         <div class="w-full border border-secondary mb-4"></div>
         <div class="rounded-1 flex justify-between border border-primary px-1 py-1">

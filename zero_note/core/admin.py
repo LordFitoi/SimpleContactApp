@@ -1,4 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.decorators import login_required
+from zero_note.core import models
 
-admin.site.login = login_required(admin.site.login)
+admin.site.register(models.Category)
+admin.site.register(models.Budget)

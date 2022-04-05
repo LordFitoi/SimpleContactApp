@@ -23,6 +23,6 @@ urlpatterns = [
     path("", login_required(HomeView.as_view())),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('profile/<str:username>/', ProfileView.as_view()),
-    path('budget/', BudgetView.as_view())
+    path('profile/<str:username>/', ProfileView.as_view(), name="profile"),
+    path('budget/', BudgetView.as_view(), name="budget")
 ]

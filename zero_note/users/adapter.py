@@ -9,6 +9,6 @@ class AccountAdapter(DefaultAccountAdapter):
     def get_login_redirect_url(self, request: HttpRequest):
         return self.redirect_url
     
-    def get_login_redirect_url(self, request: HttpRequest):
+    def get_signup_redirect_url(self, request: HttpRequest):
         return self.redirect_url
     

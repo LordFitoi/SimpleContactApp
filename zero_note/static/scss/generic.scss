@@ -80,6 +80,7 @@ button, a {
 /* --------------------------------------- */
 .flex { display: flex; }
 .flex-col { flex-direction: column; }
+.grid { display: grid; }
 
 /* ALIGN */
 /* --------------------------------------- */
@@ -192,6 +193,12 @@ button, a {
     @if $i > 0 {
         .w-1d#{$i} {
             width: 100% * (1 / $i);
+        }
+        .grid-col-#{$i} {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+        }
+        .col-span-#{$i} {
+            grid-column: span $i / span $i;
         }
     } 
 }
