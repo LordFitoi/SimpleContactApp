@@ -1,7 +1,8 @@
 <template>
-    <div class="container mx-auto flex gap-5 grid grid-col-8">
-        <budget class="col-span-6"></budget>
-        <budget-summary class="col-span-2"></budget-summary>
+    <div class="container mx-auto flex gap-5 grid grid-col-12">
+        <budget class="col-span-6">EXPECTATIVA</budget>
+        <budget class="col-span-6">REALIDAD</budget>
+        <budget-summary class="col-span-4"></budget-summary>
     </div>
 </template>
 <script>

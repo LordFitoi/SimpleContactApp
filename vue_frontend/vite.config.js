@@ -4,7 +4,8 @@ import vue from '@vitejs/plugin-vue'
 
 const staticPath = '../zero_note/static/vue/';
 const appsEntries = {
-    overview: resolve('./src/main.js')
+    budgets: resolve('./src/apps/budgets/main.js'),
+    sheets: resolve('./src/apps/sheets/main.js'),
 }
 
 export default defineConfig({

@@ -6,13 +6,14 @@
 }
 html, body, h1, h2, h3, p { margin: 0; }
 a { text-decoration: none; }
-button, a {
+button, a, input {
     display: flex;
     align-items: center;
     background: transparent;
     border: none;
     padding: 0;
-    
+    outline: none;
+
     & img {
         filter:
             invert(43%)
@@ -34,8 +35,8 @@ button, a {
 
     &:hover { background-color: $global-primary-color-light; }
     &:active { background-color: $global-primary-color-dark; }
-    
 }
+
 /* CONTAINER */
 /* --------------------------------------- */
 .container {
@@ -81,6 +82,7 @@ button, a {
 .flex { display: flex; }
 .flex-col { flex-direction: column; }
 .grid { display: grid; }
+.inline { display: inline; }
 
 /* ALIGN */
 /* --------------------------------------- */
@@ -113,6 +115,17 @@ button, a {
 .bg-secondary-dark { background-color: $global-secondary-color-dark; }
 .bg-secondary-light { background-color: $global-secondary-color-light; }
 
+/* TEXT ALIGN */
+/* --------------------------------------- */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* FONT WEIGHT */
+/* --------------------------------------- */
+.font-base { font-weight: 400; }
+.font-bold { font-weight: 700; }
+
 /* BORDERS */
 /* --------------------------------------- */
 .border { border: 1px solid; }
@@ -124,7 +137,13 @@ button, a {
 /* MARGIN */
 /* --------------------------------------- */
 .mx-auto { margin: 0 auto; }
+.mt-auto { margin-top: auto; }
 
+/* TEXT */
+/* --------------------------------------- */
+.text-nowrap {
+    white-space: nowrap;
+}
 /* SIZES */
 /* --------------------------------------- */
 .w-full { width: 100%; }
@@ -159,6 +178,19 @@ button, a {
 /* --------------------------------------- */
 .translate-center { transform: translate(-50%, -50%); }
 
+/* dividers */
+/* --------------------------------------- */
+.divide-y-primary > * {
+    border-bottom: 2px solid;
+    border-color: $global-primary-color-light;
+}
+.divide-y-white > * {
+    border-bottom: 2px solid;
+    border-color: $global-text-color-light;
+}
+
+
+
 /* SCALED */
 /* --------------------------------------- */
 @for $i from 0 through 16 {
@@ -170,6 +202,9 @@ button, a {
     }
     .h-#{$i} {
         height: $global-spacing * $i;
+    }
+    .min-h-#{$i} {
+        min-height: $global-minmax-spacing * $i;
     }
     .px-#{$i} {
         padding-left: $global-spacing * $i;
@@ -196,6 +231,9 @@ button, a {
         }
         .grid-col-#{$i} {
             grid-template-columns: repeat($i, minmax(0, 1fr));
+        }
+        .col-start-#{$i} {
+            grid-column-start: $i;
         }
         .col-span-#{$i} {
             grid-column: span $i / span $i;

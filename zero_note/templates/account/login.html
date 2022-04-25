@@ -21,7 +21,7 @@
                     <div class="flex flex-col gap-2">
                         <div class="flex justify-between">
                             <p>Contraseña:</p>
-                            <a class="text-blue" href="{% url 'account_reset_password' %}">
+                            <a class="text-blue font-sm" href="{% url 'account_reset_password' %}">
                                 ¿Olvidaste tu contraseña?
                             </a>
                         </div>
@@ -32,19 +32,19 @@
                             <p>Recordar acceso:</p>
                             {{ form.remember }}
                         </div>
-                    -->
-                    <button type="submit" class="border flex justify-center py-2 rounded-1">
-                        Iniciar Sesión
-                    </button>
+                    -->                    
+                    <div class="flex flex-col gap-2 mt-8">
+                        <button type="submit" class="border flex justify-center py-2 rounded-1">
+                            Iniciar Sesión
+                        </button>
+                        <p class="font-sm">
+                            ¿Aun no tienes una cuenta?
+                            <a href="{{ signup_url }}" class="inline text-blue font-sm">
+                                Registrate
+                            </a>
+                        </p>
+                    </div>
                 </div>
-                <div class="flex items-center">
-                    <hr class="w-full h-0">
-                    <p class="px-2">O</p>
-                    <hr class="w-full h-0">
-                </div>
-                <a href="{{ signup_url }}" class="border flex justify-center py-2 rounded-1">
-                    Crear Cuenta
-                </a>
             </div>
         </div>
     </form>

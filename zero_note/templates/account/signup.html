@@ -10,14 +10,6 @@
             <h1 class="font-lg">Crea una nueva cuenta</h1>
             <hr class="w-full border border-secondary">
             <div class="flex flex-col gap-8">
-                <a href="{{ login_url }}" class="border flex justify-center py-2 rounded-1">
-                    Iniciar Sesión
-                </a>
-                <div class="flex items-center">
-                    <hr class="w-full h-0">
-                    <p class="px-2">O</p>
-                    <hr class="w-full h-0">
-                </div>
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-2">
                         <p>Nombre de Usuario:</p>
@@ -47,9 +39,17 @@
                             {{ form.errors.password2|first }}
                         </p>
                     </div>
-                    <button type="submit" class="border flex justify-center py-2 rounded-1">
-                        Crear Cuenta
-                    </button>
+                    <div class="flex flex-col gap-2 mt-8">
+                        <button type="submit" class="border flex justify-center py-2 rounded-1">
+                            Crear Cuenta
+                        </button>
+                        <p class="font-sm">
+                            ¿Ya tienes una cuenta?
+                            <a href="{{ login_url }}" class="inline text-blue font-sm">
+                                Inicia Sesión
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

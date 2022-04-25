@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('profile/<str:username>/', ProfileView.as_view(), name="profile"),
-    path('budget/', BudgetView.as_view(), name="budget")
+    path('budget/', login_required(BudgetView.as_view()), name="budget"),
+    path("api/", include('config.api')),
 ]
