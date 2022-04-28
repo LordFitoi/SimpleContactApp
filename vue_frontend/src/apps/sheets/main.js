@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import App from './app.vue'
+import SheetApp from './app.vue'
+import BudgetApp from './components/budget.vue'
 
 const pinia = createPinia()
-createApp(App).use(pinia).mount('#app')
+createApp(SheetApp).use(pinia).mount('#app')
+createApp(BudgetApp).use(pinia).mount('#budget-app')
+

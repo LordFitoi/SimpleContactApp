@@ -238,5 +238,9 @@ button, a, input {
         .col-span-#{$i} {
             grid-column: span $i / span $i;
         }
+        .col-span-sub-#{$i} {
+            grid-column-start: $i + 1;
+            grid-column-end: 13 - $i;
+        }
     } 
 }

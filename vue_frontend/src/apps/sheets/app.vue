@@ -22,8 +22,8 @@
                         <td>{{ sheet.category }}</td>
                         <td>{{ toLocaleDate(sheet.date) }}</td>
                         <td>
-                            <button class="it-child" @click="store.deleteSheet(sheet)">
-                                <img width="20" height="20" :src="staticPath + 'images/icons/trash.svg'" >
+                            <button class="it-child" @click.stop @click="store.deleteSheet(sheet)">
+                                <img width="20" height="20" :src="store.staticPath + 'images/icons/trash.svg'" >
                             </button>
                         </td>
                     </tr>
@@ -47,13 +47,16 @@ export default {
                 day: "numeric",
                 year: "numeric"
             },
-            staticPath: window.staticPath
         }
     },
     methods: {
         toLocaleDate(dateString) {
             return new Date(dateString)
                 .toLocaleDateString(this.dateLocale, this.dateConfig);
+        },
+        openBudgetViewer(sheet) {
+            this.store.sheet = sheet;
+            toggleModalState("budget-viewer");
         }
     }
 }

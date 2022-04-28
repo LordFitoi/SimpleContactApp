@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-primary rounded-2 px-4 py-6 flex flex-col gap-2 h-max min-h-16 ">
+    <div v-if="store.sheet != null" class="bg-primary rounded-2 px-4 py-6 flex flex-col gap-2 h-max min-h-16 ">
         <h2 class="font-md"><slot></slot></h2>
         <div class="w-full border border-secondary mb-4"></div>
         <!-- BUDGET LIST -->
@@ -35,7 +35,6 @@ export default {
         return {
             budgetTitle: "",
             budgetAmount: 0,
-            budgets: [],
             staticPath: window.staticPath
         }
     },

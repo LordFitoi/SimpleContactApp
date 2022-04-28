@@ -4,7 +4,6 @@ import vue from '@vitejs/plugin-vue'
 
 const staticPath = '../zero_note/static/vue/';
 const appsEntries = {
-    budgets: resolve('./src/apps/budgets/main.js'),
     sheets: resolve('./src/apps/sheets/main.js'),
 }
 

@@ -20,7 +20,6 @@ function toggleModalState(modalId) {
 * @param {object} event - The event that calls the function.
 **/
 function hideModalOnBgClick(event, modalId) {
-    console.log(event.target.classList.contains("click-to-hide"))
     if (event.target.classList.contains("click-to-hide")) {
         toggleModalState(modalId);
     }

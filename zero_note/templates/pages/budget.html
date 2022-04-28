@@ -8,7 +8,7 @@
 {% block modal %}
     <div class="modal-container click-to-hide" id="create-sheet" onclick="hideModalOnBgClick(event, 'create-sheet')">
         <div class="container mx-auto w-full grid grid-col-12 click-to-hide">
-            <div class="modal-inner box col-span-4 col-start-5">
+            <div class="modal-inner box col-span-sub-4 border border-primary ">
                 <h3 class="font-lg">Crear Hoja</h3>
                 <hr class="mb-4 w-full border border-secondary">
                 <form method="post" action="{% url 'budget' %}" class="flex flex-col">
@@ -38,6 +38,11 @@
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+    <div class="modal-container click-to-hide py-16" id="budget-viewer" onclick="hideModalOnBgClick(event, 'budget-viewer')">
+        <div class="container mx-auto w-full grid grid-col-12 click-to-hide">
+            <div id="budget-app" class="modal-inner box col-span-sub-3 border border-primary "></div>
         </div>
     </div>
 {% endblock %}
