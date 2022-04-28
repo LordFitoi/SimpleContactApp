@@ -46,7 +46,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_sass'
+    'django_sass',
+    'django_vite',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django_filters',
     
     # LOCAL APPS
     # -------------------------------------------------------
@@ -77,6 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static'
             ],
         },
     },
@@ -129,8 +134,12 @@ USE_TZ = True
 
 MEDIA_URL = 'media/'
 STATIC_URL = 'static/'
-MEDIA_ROOT = APP_DIR / 'static/media'
-STATICFILES_DIRS = [APP_DIR / "static"]
+MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [
+    APP_DIR / "static",
+    APP_DIR / "static/vue"
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -150,5 +159,22 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_ADAPTER = 'zero_note.users.adapter.AccountAdapter'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = True
+ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_REQUIRED = True
+
+# Vue Vite Loader
+# -------------------------------------------------------
+DJANGO_VITE_ASSETS_PATH = APP_DIR / "static/vue"
+DJANGO_VITE_MANIFEST_PATH = DJANGO_VITE_ASSETS_PATH / "manifest.json"
+DJANGO_VITE_DEV_MODE = False
+
+# django-rest-framework
+# ------------------------------------------------------
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_FILTER_BACKENDS": ['django_filters.rest_framework.DjangoFilterBackend']
+}
