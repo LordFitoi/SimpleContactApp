@@ -1,10 +1,10 @@
-# SimpleBudgetApp
+# SimpleContactApp
 
 **Nombre:** Nahum Gamaliel Santana Mariano<br>
 **Matricula:** 2021-0959
 
 ## Descripción:
-Esta applicacion te permite crear hojas de presupuesto categorizadas.
+Esta applicacion te permite agendar tus contactos. Se utlizo como base otro proyecto realizado anteriormente para la materia de Programación I
 
 ## Requisitos:
 - Python ^3.8

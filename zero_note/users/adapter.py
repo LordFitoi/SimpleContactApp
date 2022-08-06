@@ -1,10 +1,9 @@
 from allauth.account.adapter import DefaultAccountAdapter
-from django.conf import settings
 from django.http import HttpRequest
 
 
 class AccountAdapter(DefaultAccountAdapter):
-    redirect_url = "/budget/"
+    redirect_url = "/contact/"
 
     def get_login_redirect_url(self, request: HttpRequest):
         return self.redirect_url

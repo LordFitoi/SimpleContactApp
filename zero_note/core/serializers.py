@@ -1,15 +1,11 @@
-from .models import Budget, BudgetSheet
+from .models import Contact
 from rest_framework import serializers
 
 
-class BudgetSerializer(serializers.ModelSerializer):
+class ContactSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Budget
+        model = Contact
         fields = "__all__"
 
 
-class BudgetSheetSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = BudgetSheet
-        fields = "__all__"
 

@@ -1,11 +1,10 @@
+from django.conf import settings
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from zero_note.core.viewsets import BudgetViewSet, BudgetSheetViewSet
+from rest_framework.routers import DefaultRouter, SimpleRouter
+from zero_note.core.viewsets import ContactViewSet
 
-router = DefaultRouter()
-router.register("budgets", BudgetViewSet)
-router.register("budgets-sheets", BudgetSheetViewSet)
-
+router = DefaultRouter() if settings.DEBUG else SimpleRouter()
+router.register("contacts", ContactViewSet)
 
 app_name = "api"
 urlpatterns = router.urls
