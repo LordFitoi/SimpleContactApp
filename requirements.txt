@@ -11,3 +11,4 @@ django-filter==21.1 # https://github.com/carltongibson/django-filter
 # ----------------------------------------------
 Pillow==9.0.1 # https://github.com/python-pillow/Pillow
 gunicorn==20.1.0  # https://github.com/benoitc/gunicorn
+Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
