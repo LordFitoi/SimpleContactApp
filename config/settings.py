@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mbkyn@tghl2@e^y%5^to_&#7wvjau690vvw-8b$zbd+yr8$h3q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["simcontact.herokuapp.com"]
 
 
 # Application definition
