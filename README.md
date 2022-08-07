@@ -4,7 +4,7 @@
 **Matricula:** 2021-0959
 
 ## Descripción:
-Esta applicacion te permite agendar tus contactos. Se utlizo como base otro proyecto realizado anteriormente para la materia de Programación I
+Esta applicacion te permite agendar tus contactos.
 
 ## Requisitos:
 - Python ^3.8
