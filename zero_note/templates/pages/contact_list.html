@@ -1,50 +1,45 @@
 {% extends 'base.html' %}
 {% load django_vite static %}
 
-
-{% block modal %}
-    <div class="modal-container click-to-hide" id="create-sheet" onclick="hideModalOnBgClick(event, 'create-sheet')">
-        <div class="container mx-auto w-full grid grid-col-12 click-to-hide">
-            <div class="modal-inner box col-span-sub-4 border border-primary ">
-                <h3 class="font-lg">Crear Hoja</h3>
-                <hr class="mb-4 w-full border border-secondary">
-                <form method="post" action="{% url 'contact-list' %}" class="flex flex-col">
-                    {% csrf_token %}
-                    <div class="flex flex-col gap-4">
-                        <div class="flex flex-col gap-2">
-                            <p>Título:</p>
-                            {{ form.name }}
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <p>Categoría:</p>
-                            {{ form.category }}
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <p>Fecha:</p>
-                            {{ form.date }}
-                        </div>
-                    </div>
-                    
-                    <div class="mt-10 flex gap-2 justify-end">
-                        <button type="button" class="border flex justify-center px-6 py-2 rounded-1 click-to-hide">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="border flex justify-center px-6 py-2 rounded-1">
-                            Crear
-                        </button>
-                    </div>
-                </form>
+{% block content %}
+    {% csrf_token %}
+    <div id="app" class="container mx-auto flex gap-5 grid grid-col-12">
+        <div class="box col-span-12 border border-primary shadow-sm">
+            <div class="mb-8 flex items-center justify-between">
+                <h1 class="font-xl">Contactos</h1>
+                <button @click="createContact()" class="text-nowrap flex justify-center py-2 px-6 rounded-1 border mt-auto bg-primary">
+                    Agendar contacto
+                </button>
             </div>
+            <table class="w-full text-left" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr class="category-list divide-y-white">
+                        <th>Nombres:</th>
+                        <th>Apellidos:</th>
+                        <th>Correo:</th>
+                        <th>Telefono:</th>
+                        <th style="width: 32px;">.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="contact in store.contacts" :key="contact" class="divide-y-primary item-list" @click="updateContact(contact)">
+                        <td v-text="contact.first_name"></td>
+                        <td v-text="contact.last_name"></td>
+                        <td v-text="contact.email"></td>
+                        <td v-text="contact.phone_number"></td>
+                        <td>
+                            <button class="it-child" @click.stop @click="deleteContact(contact.id)">
+                                <img width="20" height="20" src="{% static 'images/icons/trash.svg' %}" >
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
-    <div class="modal-container click-to-hide py-16" id="budget-viewer" onclick="hideModalOnBgClick(event, 'budget-viewer')">
-        <div class="container mx-auto w-full grid grid-col-12 click-to-hide">
-            <div id="budget-app" class="modal-inner box col-span-sub-3 border border-primary "></div>
-        </div>
+        <create-contact-modal ref="createModal"></create-contact-modal>
     </div>
 {% endblock %}
 
 {% block javascript %}
-    <script src="{% static 'js/utils.js'%}"></script>
-    {% vite_asset '../../../vue_frontend/src/apps/sheets/main.js' %}
+    {% vite_asset '../../../vue_frontend/src/app/main.js' %}
 {% endblock javascript %}

@@ -1,5 +1,6 @@
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.response import Response
+
 from .models import Contact
 from .serializers import ContactSerializer
 
@@ -7,13 +8,24 @@ from .serializers import ContactSerializer
 class ContactViewSet(viewsets.ModelViewSet):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['sheet', 'category']
-    
-    def create(self, request, *args, **kwargs):
-        request.data["created_by"] = self.request.user 
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid()
-        self.perform_create(serializer)
-        return super().create(self, request, *args, **kwargs)
 
+    def create(self, request, *args, **kwargs):
+        data = dict(request.data)
+        data['created_by'] = request.user.id
+        serializer = self.get_serializer(data=data)
+        
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+    def update(self, request, *args, **kwargs):
+        data = dict(request.data)
+        data['created_by'] = request.user.id
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        return Response(serializer.data)

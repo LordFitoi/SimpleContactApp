@@ -17,12 +17,13 @@ nav {
 
 /* FORM */
 /* --------------------------------------- */
-form {
+.form, form {
     select,
     input[type="text"],
     input[type="email"],
     input[type="password"],
     input[type="date"],
+    input[type="tel"],
     input:-internal-autofill-selected {
         background-color: transparent;
         padding: 2*$global-spacing;
@@ -112,6 +113,7 @@ button.dropdown {
     background-color: #00000087;
     overflow-y: auto;
     top: 0;
+    left: 0;
 
     &.active { display: flex; }
 }

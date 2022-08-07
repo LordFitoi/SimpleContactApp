@@ -8,13 +8,9 @@ class BaseModel(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=150, blank=True, null=True)
 
     class Meta:
         abstract = True
-
-    def __str__(self):
-        return f'{self.name} - {self.created_by.username}'
 
 
 class Relationship(models.TextChoices):
@@ -25,12 +21,14 @@ class Relationship(models.TextChoices):
         
 
 class Contact(BaseModel):
-
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254)
-    phone_number= models.CharField(max_length=20)
+    first_name = models.CharField(max_length=50, blank=True, null=True)
+    last_name = models.CharField(max_length=50, blank=True, null=True)
+    email = models.EmailField(max_length=254, blank=True, null=True)
+    phone_number= models.CharField(max_length=20, blank=True, null=True)
     relation_ship = models.CharField(
         max_length=50,
         choices=Relationship.choices,
         default=Relationship.OTHER)
+
+    def __str__(self):
+        return f'{self.first_name} - {self.created_by.username}'
