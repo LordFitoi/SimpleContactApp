@@ -6,6 +6,18 @@
 ## Descripción:
 Esta applicacion te permite agendar tus contactos.
 
+
+Pagina en vivo: https://simcontact.herokuapp.com/
+
+## Tecnologias Usadas:
+- Python/Django (Backend)
+- PostgresSQL (Base de Datos)
+- Node.js/Vite (Generar Estaticos)
+- Vue.js (Framework de Js alternativo a React)
+- Heroku (PaaS donde se aloja el Backend)
+- Github Pages (Static Server donde se alojan los estaticos)
+
+
 ## Requisitos:
 - Python ^3.8
 - Node.js ^12.2
