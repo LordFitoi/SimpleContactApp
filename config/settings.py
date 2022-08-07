@@ -11,21 +11,23 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 APP_DIR = BASE_DIR / "zero_note"
+env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mbkyn@tghl2@e^y%5^to_&#7wvjau690vvw-8b$zbd+yr8$h3q'
+SECRET_KEY = env.db("SECRET_KEY", 'django-insecure-mbkyn@tghl2@e^y%5^to_&#7wvjau690vvw-8b$zbd+yr8$h3q')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["simcontact.herokuapp.com"]
+ALLOWED_HOSTS = ["simcontact.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -94,10 +96,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": env.db("DATABASE_URL", default="postgres:///zero_note"),
 }
 
 
@@ -156,7 +155,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+MIGRATION_MODULES = {"sites": "zero_note.contrib.sites.migrations"}
 ACCOUNT_ADAPTER = 'zero_note.users.adapter.AccountAdapter'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = False
