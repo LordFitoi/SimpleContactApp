@@ -9,6 +9,9 @@
                         <div class="flex flex-col gap-2">
                             <p>Nombres:</p>
                             <input type="text" name="first_name" placeholder="Juancito Manuel" v-model="first_name">
+                            <p v-if="fistNameError && check" class="text-red font-sm">
+                                Este campo es obligatorio
+                            </p>
                         </div>
                         <div class="flex flex-col gap-2">
                             <p>Apellidos:</p>
@@ -17,6 +20,9 @@
                         <div class="flex flex-col gap-2">
                             <p>Correo:</p>
                             <input type="email" name="email" placeholder="juancito@gmail.com" v-model="email">
+                            <p v-if="emailError && check" class="text-red font-sm">
+                                El correo debe incluir una @ para ser valido.
+                            </p>
                         </div>
                         <div class="flex flex-col gap-2">
                             <p>Telefono:</p>
@@ -62,7 +68,16 @@ export default {
             last_name: "",
             email: "",
             phone_number: "",
-            relation_ship: "Other"
+            relation_ship: "Other",
+            check: false
+        }
+    },
+    computed: {
+        fistNameError() {
+            return this.first_name == "";
+        },
+        emailError() {
+            return !this.email.includes("@");
         }
     },
     methods: {
@@ -77,7 +92,9 @@ export default {
         },
         updateContact () {
             let data = this.getData();
-            this.store.update(this.id, data);
+            this.store.update(this.id, data).then(() => {
+                this.toggleModalVisibility();
+            });
         },
         setFieldsValues(data) {
             this.id = data.id;
@@ -95,13 +112,18 @@ export default {
         },
         toggleModalVisibility() {
             this.store.isModalVisible = !this.store.isModalVisible;
+            this.check = false;
         },
         performSubmit() {
-            if (this.store.isEditing) {
-                this.updateContact();
-            } else {
-                this.createContact();
+            if (!this.fistNameError && !this.emailError) {
+                if (this.store.isEditing) {
+                    this.updateContact();
+                } else {
+                    this.createContact();
+                }
             }
+
+            this.check = true;
         }
     }
 }

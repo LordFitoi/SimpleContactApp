@@ -13,11 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.urls import path, include
 from zero_note.core.views import ContactListView, HomeView
 from zero_note.users.views import ProfileView
+
 
 urlpatterns = [
     path("", login_required(HomeView.as_view())),
@@ -26,4 +29,4 @@ urlpatterns = [
     path('profile/<str:username>/', ProfileView.as_view(), name="profile"),
     path('contact/', login_required(ContactListView.as_view()), name="contact-list"),
     path("api/", include('config.api')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

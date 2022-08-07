@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import environ
+import environ, os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +22,10 @@ env = environ.Env()
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.db("SECRET_KEY", 'django-insecure-mbkyn@tghl2@e^y%5^to_&#7wvjau690vvw-8b$zbd+yr8$h3q')
+SECRET_KEY = os.getenv("SECRET_KEY", default='django-insecure-mbkyn@tghl2@e^y%5^to_&#7wvjau690vvw-8b$zbd+yr8$h3q')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", default=True)
 
 ALLOWED_HOSTS = ["simcontact.herokuapp.com", "127.0.0.1"]
 
@@ -68,6 +68,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -132,12 +134,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 MEDIA_URL = 'media/'
-STATIC_URL = 'static/'
+STATIC_URL = os.getenv('STATIC_URL', default='static/')
 MEDIA_ROOT = BASE_DIR / 'media'
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
 STATICFILES_DIRS = [
     APP_DIR / "static",
     APP_DIR / "static/vue"
+]
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
 # Default primary key field type
@@ -155,7 +161,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-MIGRATION_MODULES = {"sites": "zero_note.contrib.sites.migrations"}
+
 ACCOUNT_ADAPTER = 'zero_note.users.adapter.AccountAdapter'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = False
