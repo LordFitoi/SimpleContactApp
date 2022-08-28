@@ -96,6 +96,17 @@ export default {
                 this.toggleModalVisibility();
             });
         },
+        resetFieldsValues() {
+            this.setFieldsValues({
+                id: null,
+                first_name: "",
+                last_name: "",
+                email: "",
+                phone_number: "",
+                relation_ship: "Other",
+                check: false
+            })
+        },
         setFieldsValues(data) {
             this.id = data.id;
             this.first_name = data.first_name;
@@ -113,6 +124,10 @@ export default {
         toggleModalVisibility() {
             this.store.isModalVisible = !this.store.isModalVisible;
             this.check = false;
+
+            if (!this.store.isModalVisible) {
+                this.resetFieldsValues();
+            }
         },
         performSubmit() {
             if (!this.fistNameError && !this.emailError) {

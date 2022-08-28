@@ -1,3 +1,4 @@
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, FormView
 from django.http import HttpResponseRedirect
@@ -24,6 +25,7 @@ class ContactListView(LoginRequiredMixin, FormView):
         return reverse("contact-list")
 
     def get_context_data(self, **kwargs):
+        
         context = super().get_context_data(**kwargs)
         context["contacts"] = self.model.objects.filter(
             created_by = self.request.user)
