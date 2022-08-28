@@ -4,14 +4,15 @@
 **Matricula:** 2021-0959
 
 ## Descripción:
-Esta applicacion te permite agendar tus contactos.
-
+Esta applicacion te permite agendar tus contactos. Es la misma aplicación creada para la practica del parcial #2, pero con la integración de firebase.
+La aplicación usa firebase para almacenar y gestionar los datos de los contactos guardados unicamente.
 
 Pagina en vivo: https://simcontact.herokuapp.com/
 
 ## Tecnologias Usadas:
 - Python/Django (Backend)
-- PostgresSQL (Base de Datos)
+- PostgresSQL (Base de Datos, para la autenticacion)
+- Firebase (Base de Datos, para la aplicación)
 - Node.js/Vite (Generar Estaticos)
 - Vue.js (Framework de Js alternativo a React)
 - Heroku (PaaS donde se aloja el Backend)
@@ -36,5 +37,7 @@ Y luego accerder a la ruta [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 ## Preview
 ![Screenshot from 2022-04-27 22-44-28](https://user-images.githubusercontent.com/37852973/165666352-d3ecd8b2-30ba-4125-9d63-fa3ecdb06fc5.png)
 ![Screenshot from 2022-04-27 22-44-33](https://user-images.githubusercontent.com/37852973/165666353-23cd70bf-48e0-4fe7-8963-fa4c056c7902.png)
-<img width="1064" alt="Screen Shot 2022-08-06 at 11 10 26 PM" src="https://user-images.githubusercontent.com/37852973/183273423-e16e83db-f99a-4185-857d-106fbd69bb39.png">
-![image](https://user-images.githubusercontent.com/37852973/183273427-b01594fc-c456-4668-84e2-f323b82d9a0a.png)
+<img width="1059" alt="Screen Shot 2022-08-27 at 8 48 09 PM" src="https://user-images.githubusercontent.com/37852973/187053231-273384df-7460-4200-910b-a6a754cda122.png">
+<img width="1177" alt="Screen Shot 2022-08-27 at 8 48 00 PM" src="https://user-images.githubusercontent.com/37852973/187053232-e548d530-6be9-4c03-8e91-9b00de78c5de.png">
+<img width="1183" alt="Screen Shot 2022-08-27 at 9 04 08 PM" src="https://user-images.githubusercontent.com/37852973/187053301-842ca2a3-0d1e-44e3-b7f0-737e1fb9f2fb.png">
+
